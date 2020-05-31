@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class RestartScene : MonoBehaviour
 {
    void OnTriggerEnter(Collider other) {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+      if (other.gameObject.name == "Player")
+      {
+         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+      }
    }
 }

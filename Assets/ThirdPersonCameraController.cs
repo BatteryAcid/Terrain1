@@ -59,9 +59,17 @@ public class ThirdPersonCameraController : MonoBehaviour
       Vector3 dir = new Vector3(0, 0, zoom);
 
       Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0);
-      camTransform.position = Target.position + rotation * dir;
-      camTransform.LookAt(Target.position);
+      if (Input.GetMouseButton(1))
+      {
+         camTransform.position = Target.position + rotation * dir;
+         camTransform.LookAt(Target.position);
+      }
+      else
+      {
+         camTransform.position = Target.position + rotation * dir;
+         camTransform.LookAt(Target.position);
 
-      Player.rotation = Quaternion.Euler(0, mouseX, 0);
+         Player.rotation = Quaternion.Euler(0, mouseX, 0);
+      }
    }
 }
