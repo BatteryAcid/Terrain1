@@ -1269,8 +1269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dda396628244e059e86791a57b42c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 8
-  player: {fileID: 0}
+  maxSpeed: 10
+  player: {fileID: 1837976565}
   ball: {fileID: 1357579848}
   playerCamera: {fileID: 963194228}
   baseThrust: 20
