@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Zenject;
 
 public class ThirdPersonCharacterController : MonoBehaviour
 {
@@ -12,6 +11,21 @@ public class ThirdPersonCharacterController : MonoBehaviour
    public float baseThrust = 20.0f;
    private float yAxisSpawnPointAdjustment = 2.0f;
    private float throwKeyPressedStartTime;
+
+   private GameSessionFirst _gameSession;
+   public const int THROW_OP_CODE = 201;
+   public const int BOX_HIT_OP_CODE = 202;
+   public const int GAMEOVER_OP_CODE = 209;
+
+   [Inject]
+   public void Construct(GameSessionFirst gameSession) {
+      _gameSession = gameSession;
+   }
+
+   public void blockHit() {
+      Debug.Log("blockHit inside controller");
+      _gameSession.playerAction(BOX_HIT_OP_CODE, "box_hit");
+   }
 
    // Start is called before the first frame update
    void Start()
@@ -51,6 +65,7 @@ public class ThirdPersonCharacterController : MonoBehaviour
                ball.velocity = new Vector3(0, 0, 0);
 
                ball.AddForce(determineVectorOfThrow() * determineThrustOfBall(throwKeyPressedTime), ForceMode.Impulse);
+               _gameSession.playerAction(THROW_OP_CODE, "throw");
             }
             else
             {
