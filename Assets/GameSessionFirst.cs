@@ -29,7 +29,9 @@ public class GameSessionFirst
    private RealTimeClient _realTimeClient;
 
    private byte[] connectionPayload = new Byte[64];
-   
+
+   private static readonly IPEndPoint DefaultLoopbackEndpoint = new IPEndPoint(IPAddress.Loopback, port: 0);
+
    [Inject]
    public GameSessionFirst(RealTimeClient realTimeClient)
    {
@@ -104,8 +106,6 @@ public class GameSessionFirst
    // code from 
    // - https://stackoverflow.com/a/49408267/1956540 with a change to UDP
    // - https://docs.microsoft.com/en-us/dotnet/framework/network-programming/how-to-create-a-socket
-   private static readonly IPEndPoint DefaultLoopbackEndpoint = new IPEndPoint(IPAddress.Loopback, port: 0);
-
    public static int GetAvailablePort()
    {
       using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp))

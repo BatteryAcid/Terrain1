@@ -641,7 +641,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Winner
+  m_Text: 
 --- !u!222 &568187586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -663,7 +663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outcomeText: {fileID: 568187585}
-  outcome: 0
 --- !u!4 &632868243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1617365279978105996, guid: a851b7b490ada424faef18b6be17b299,
